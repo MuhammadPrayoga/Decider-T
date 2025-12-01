@@ -70,7 +70,7 @@ const MAJORS = [
     // Target: A3 (Desain) - CPU/RAM focus
     weights: { price: 0.15, cpu: 0.3, ram: 0.3, storage: 0.15, vram: 0.1 },
   },
-];    
+];
 
 const INITIAL_LAPTOPS = [
   {
@@ -524,8 +524,16 @@ export default function App() {
                 <div className="relative group">
                   <div className="absolute -inset-1 bg-gradient-to-r from-violet-600 to-indigo-600 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
                   <Card className="relative bg-slate-900 border-slate-700/50 flex flex-col md:flex-row gap-8 items-center p-8">
-                    <div className="w-full md:w-1/3 aspect-video bg-slate-800 rounded-xl flex items-center justify-center border border-slate-700">
-                      <Monitor size={64} className="text-slate-600" />
+                    <div className="w-full md:w-1/3 aspect-video bg-slate-800 rounded-xl flex items-center justify-center border border-slate-700 overflow-hidden">
+                      {topsisResults[0].image ? (
+                        <img
+                          src={topsisResults[0].image}
+                          alt={topsisResults[0].name}
+                          className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+                        />
+                      ) : (
+                        <Monitor size={64} className="text-slate-600" />
+                      )}
                     </div>
                     <div className="flex-1 space-y-4 w-full">
                       <div className="flex justify-between items-start">
@@ -578,10 +586,23 @@ export default function App() {
                   {topsisResults.slice(1).map((laptop, idx) => (
                     <Card
                       key={laptop.id}
-                      className="hover:border-slate-600 transition-colors"
+                      className="hover:border-slate-600 transition-colors flex flex-col"
                     >
+                      <div className="w-full aspect-video bg-slate-900 rounded-lg mb-4 overflow-hidden border border-slate-800">
+                        {laptop.image ? (
+                          <img
+                            src={laptop.image}
+                            alt={laptop.name}
+                            className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+                          />
+                        ) : (
+                          <div className="w-full h-full flex items-center justify-center">
+                            <Monitor size={32} className="text-slate-700" />
+                          </div>
+                        )}
+                      </div>
                       <div className="flex justify-between items-start mb-4">
-                        <div className="w-10 h-10 bg-slate-900 rounded-lg flex items-center justify-center font-bold text-slate-500 border border-slate-700">
+                        <div className="w-8 h-8 bg-slate-900 rounded-lg flex items-center justify-center font-bold text-slate-500 border border-slate-700 text-sm">
                           #{idx + 2}
                         </div>
                         <span className="text-sm font-mono text-slate-500">
@@ -591,7 +612,7 @@ export default function App() {
                       <h5 className="font-bold text-lg mb-4 truncate">
                         {laptop.name}
                       </h5>
-                      <div className="space-y-2 text-sm text-slate-400">
+                      <div className="space-y-2 text-sm text-slate-400 mt-auto">
                         <div className="flex justify-between">
                           <span>Harga</span>
                           <span className="text-slate-200">
