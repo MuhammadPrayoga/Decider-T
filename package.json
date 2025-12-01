@@ -1,5 +1,6 @@
 {
   "name": "decider-t",
+  "description": "Sistem Pendukung Keputusan (SPK) pemilihan laptop untuk mahasiswa menggunakan metode TOPSIS.",
   "homepage": "https://MuhammadPrayoga.github.io/Decider-T",
   "private": true,
   "version": "0.0.0",
