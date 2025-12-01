@@ -18,6 +18,8 @@ import {
   Lock,
   Edit,
   X,
+  RefreshCw,
+  Image as ImageIcon,
 } from "lucide-react";
 import { clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
@@ -72,6 +74,24 @@ const MAJORS = [
     name: "Arsitektur",
     // Target: A3 (Desain) - CPU/RAM focus
     weights: { price: 0.15, cpu: 0.3, ram: 0.3, storage: 0.15, vram: 0.1 },
+  },
+  {
+    id: "akuntansi",
+    name: "Akuntansi",
+    // Target: A2 (Bisnis) - Balanced/Office
+    weights: { price: 0.3, cpu: 0.2, ram: 0.2, storage: 0.2, vram: 0.1 },
+  },
+  {
+    id: "hukum",
+    name: "Hukum",
+    // Target: A1 (Office) - Text focus
+    weights: { price: 0.4, cpu: 0.1, ram: 0.1, storage: 0.3, vram: 0.1 },
+  },
+  {
+    id: "kedokteran",
+    name: "Kedokteran",
+    // Target: A2/A3 - Balanced/Storage focus
+    weights: { price: 0.2, cpu: 0.2, ram: 0.2, storage: 0.3, vram: 0.1 },
   },
 ];
 
@@ -326,7 +346,18 @@ const Select = ({ label, options, ...props }) => (
 
 export default function App() {
   const [view, setView] = useState("user"); // 'user' | 'admin'
-  const [laptops, setLaptops] = useState(INITIAL_LAPTOPS);
+
+  // Initialize from LocalStorage or use default
+  const [laptops, setLaptops] = useState(() => {
+    const saved = localStorage.getItem("spk_laptops_data");
+    return saved ? JSON.parse(saved) : INITIAL_LAPTOPS;
+  });
+
+  // Save to LocalStorage whenever laptops change
+  React.useEffect(() => {
+    localStorage.setItem("spk_laptops_data", JSON.stringify(laptops));
+  }, [laptops]);
+
   const [userState, setUserState] = useState({ name: "", major: "" });
   const [submitted, setSubmitted] = useState(false);
   const [showDebug, setShowDebug] = useState(false);
@@ -343,6 +374,7 @@ export default function App() {
     ram: "",
     storage: "",
     vram: "",
+    image: "",
   });
 
   // Derived State
@@ -395,6 +427,7 @@ export default function App() {
                 ram: Number(formData.ram),
                 storage: Number(formData.storage),
                 vram: Number(formData.vram),
+                image: formData.image,
               }
             : l
         )
@@ -410,6 +443,7 @@ export default function App() {
         ram: Number(formData.ram),
         storage: Number(formData.storage),
         vram: Number(formData.vram),
+        image: formData.image,
       };
       setLaptops([...laptops, newLaptop]);
     }
@@ -421,6 +455,7 @@ export default function App() {
       ram: "",
       storage: "",
       vram: "",
+      image: "",
     });
   };
 
@@ -433,6 +468,7 @@ export default function App() {
       ram: laptop.ram,
       storage: laptop.storage,
       vram: laptop.vram,
+      image: laptop.image || "",
     });
     // Scroll to top of form
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -447,7 +483,18 @@ export default function App() {
       ram: "",
       storage: "",
       vram: "",
+      image: "",
     });
+  };
+
+  const handleResetData = () => {
+    if (
+      window.confirm(
+        "Reset data ke default? Data yang ditambahkan akan hilang."
+      )
+    ) {
+      setLaptops(INITIAL_LAPTOPS);
+    }
   };
 
   const handleDelete = (id) => {
@@ -861,6 +908,13 @@ export default function App() {
           <div className="space-y-6">
             <div className="flex justify-between items-center">
               <h2 className="text-2xl font-bold">Kelola Laptop</h2>
+              <Button
+                variant="secondary"
+                onClick={handleResetData}
+                className="text-xs"
+              >
+                <RefreshCw size={14} /> Reset Data Default
+              </Button>
             </div>
 
             <Card className="p-6">
@@ -945,6 +999,16 @@ export default function App() {
                   }
                   required
                 />
+                <div className="col-span-2 md:col-span-3">
+                  <Input
+                    label="URL Gambar (Opsional)"
+                    placeholder="https://example.com/laptop.jpg"
+                    value={formData.image}
+                    onChange={(e) =>
+                      setFormData({ ...formData, image: e.target.value })
+                    }
+                  />
+                </div>
                 <div className="col-span-2 md:col-span-3 flex justify-end pt-2">
                   <Button type="submit" className="w-full justify-center">
                     {editingId ? (
@@ -965,6 +1029,7 @@ export default function App() {
               <table className="w-full text-left text-sm">
                 <thead className="bg-slate-900 text-slate-400 uppercase font-medium">
                   <tr>
+                    <th className="px-6 py-4">Gambar</th>
                     <th className="px-6 py-4">Nama</th>
                     <th className="px-6 py-4">Harga</th>
                     <th className="px-6 py-4">CPU</th>
@@ -980,6 +1045,19 @@ export default function App() {
                       key={laptop.id}
                       className="hover:bg-slate-800/50 transition-colors"
                     >
+                      <td className="px-6 py-4">
+                        <div className="w-12 h-12 rounded-lg bg-slate-800 border border-slate-700 overflow-hidden flex items-center justify-center">
+                          {laptop.image ? (
+                            <img
+                              src={laptop.image}
+                              alt={laptop.name}
+                              className="w-full h-full object-cover"
+                            />
+                          ) : (
+                            <ImageIcon size={20} className="text-slate-600" />
+                          )}
+                        </div>
+                      </td>
                       <td className="px-6 py-4 font-medium text-slate-200">
                         {laptop.name}
                       </td>
