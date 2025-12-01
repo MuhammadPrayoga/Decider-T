@@ -104,6 +104,8 @@ const INITIAL_LAPTOPS = [
     ram: 4,
     storage: 256,
     vram: 4,
+    image:
+      "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=600&q=80",
   },
   {
     id: 2,
@@ -113,6 +115,8 @@ const INITIAL_LAPTOPS = [
     ram: 8,
     storage: 512,
     vram: 4,
+    image:
+      "https://images.unsplash.com/photo-1531297461136-82lw9b2b2b8c?w=600&q=80",
   },
   {
     id: 3,
@@ -122,6 +126,8 @@ const INITIAL_LAPTOPS = [
     ram: 16,
     storage: 512,
     vram: 8,
+    image:
+      "https://images.unsplash.com/photo-1611186871348-648470d23970?w=600&q=80",
   },
   {
     id: 4,
@@ -131,6 +137,8 @@ const INITIAL_LAPTOPS = [
     ram: 16,
     storage: 1000,
     vram: 16,
+    image:
+      "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=600&q=80",
   },
   {
     id: 5,
@@ -141,7 +149,7 @@ const INITIAL_LAPTOPS = [
     storage: 2000,
     vram: 32,
     image:
-      "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=500&q=80",
+      "https://images.unsplash.com/photo-1593640408182-31c70c8268f5?w=600&q=80",
   },
 ];
 
