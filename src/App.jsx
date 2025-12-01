@@ -105,7 +105,7 @@ const INITIAL_LAPTOPS = [
     storage: 256,
     vram: 4,
     image:
-      "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=600&q=80",
+      "https://media.dinomarket.com/docs/imgTD/2024-10/DM_8A66288AC870474204AD1F2865043881_141024161003_ll.jpg?w=600&q=80",
   },
   {
     id: 2,
@@ -116,7 +116,7 @@ const INITIAL_LAPTOPS = [
     storage: 512,
     vram: 4,
     image:
-      "https://images.unsplash.com/photo-1531297461136-82lw9b2b2b8c?w=600&q=80",
+      "https://els.id/wp-content/uploads/2024/05/Acer-Swift-GO-OLED-SFG14-73-Blue-6.png?w=600&q=80",
   },
   {
     id: 3,
@@ -127,7 +127,7 @@ const INITIAL_LAPTOPS = [
     storage: 512,
     vram: 8,
     image:
-      "https://images.unsplash.com/photo-1611186871348-648470d23970?w=600&q=80",
+      "https://els.id/wp-content/uploads/2024/12/Lenovo-LOQ-15IAX9E.png?w=600&q=80",
   },
   {
     id: 4,
@@ -137,8 +137,7 @@ const INITIAL_LAPTOPS = [
     ram: 16,
     storage: 1000,
     vram: 16,
-    image:
-      "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=600&q=80",
+    image: "https://www.asus.com/media/Odin/Websites/global/Series/33.png",
   },
   {
     id: 5,
@@ -148,8 +147,7 @@ const INITIAL_LAPTOPS = [
     ram: 32,
     storage: 2000,
     vram: 32,
-    image:
-      "https://images.unsplash.com/photo-1593640408182-31c70c8268f5?w=600&q=80",
+    image: "https://m.media-amazon.com/images/I/61PSDa30RnL.jpg?w=600&q=80",
   },
 ];
 
@@ -299,7 +297,7 @@ const Card = ({ children, className }) => (
 
 const Button = ({ children, variant = "primary", className, ...props }) => {
   const variants = {
-    primary: "bg-violet-600 hover:bg-violet-700 text-white",
+    primary: "bg-red-600 hover:bg-red-700 text-white",
     secondary: "bg-slate-700 hover:bg-slate-600 text-slate-200",
     danger:
       "bg-red-500/20 text-red-400 hover:bg-red-500/30 border border-red-500/50",
@@ -326,7 +324,7 @@ const Input = ({ label, ...props }) => (
       <label className="text-sm font-medium text-slate-400">{label}</label>
     )}
     <input
-      className="bg-slate-900 border border-slate-700 rounded-lg px-4 py-2.5 text-slate-100 focus:ring-2 focus:ring-violet-500 focus:border-transparent outline-none transition-all"
+      className="bg-slate-900 border border-slate-700 rounded-lg px-4 py-2.5 text-slate-100 focus:ring-2 focus:ring-red-500 focus:border-transparent outline-none transition-all"
       {...props}
     />
   </div>
@@ -338,7 +336,7 @@ const Select = ({ label, options, ...props }) => (
       <label className="text-sm font-medium text-slate-400">{label}</label>
     )}
     <select
-      className="bg-slate-900 border border-slate-700 rounded-lg px-4 py-2.5 text-slate-100 focus:ring-2 focus:ring-violet-500 focus:border-transparent outline-none transition-all appearance-none"
+      className="bg-slate-900 border border-slate-700 rounded-lg px-4 py-2.5 text-slate-100 focus:ring-2 focus:ring-red-500 focus:border-transparent outline-none transition-all appearance-none"
       {...props}
     >
       {options.map((opt) => (
@@ -512,12 +510,12 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 font-sans selection:bg-violet-500/30">
+    <div className="min-h-screen bg-slate-950 text-slate-100 font-sans selection:bg-red-500/30">
       {/* Navigation */}
       <nav className="border-b border-slate-800 bg-slate-950/50 backdrop-blur-xl sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-gradient-to-br from-violet-500 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg shadow-violet-500/20">
+            <div className="w-10 h-10 bg-gradient-to-br from-red-500 to-rose-600 rounded-xl flex items-center justify-center shadow-lg shadow-red-500/20">
               <Calculator className="text-white w-6 h-6" />
             </div>
             <div>
@@ -630,7 +628,7 @@ export default function App() {
                   </div>
                   <Button
                     onClick={handleSubmit}
-                    className="w-full justify-center py-3 text-lg shadow-violet-500/20 shadow-lg"
+                    className="w-full justify-center py-3 text-lg shadow-red-500/20 shadow-lg"
                   >
                     Lihat Rekomendasi <ChevronDown size={20} />
                   </Button>
@@ -644,7 +642,7 @@ export default function App() {
                   <div>
                     <h2 className="text-2xl font-bold text-white mb-2">
                       Halo,{" "}
-                      <span className="text-violet-400">{userState.name}</span>!
+                      <span className="text-red-400">{userState.name}</span>!
                     </h2>
                     <p className="text-slate-400">
                       Berikut adalah rekomendasi laptop terbaik yang disesuaikan
@@ -682,7 +680,7 @@ export default function App() {
 
                 {/* Top Pick Hero */}
                 <div className="relative group">
-                  <div className="absolute -inset-1 bg-gradient-to-r from-violet-600 to-indigo-600 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
+                  <div className="absolute -inset-1 bg-gradient-to-r from-red-600 to-rose-600 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
                   <Card className="relative bg-slate-900 border-slate-700/50 flex flex-col md:flex-row gap-8 items-center p-8">
                     <div className="w-full md:w-1/3 aspect-video bg-slate-800 rounded-xl flex items-center justify-center border border-slate-700 overflow-hidden">
                       {topsisResults[0].image ? (
@@ -709,7 +707,7 @@ export default function App() {
                           <p className="text-sm text-slate-400">
                             Nilai Preferensi
                           </p>
-                          <p className="text-2xl font-bold text-violet-400">
+                          <p className="text-2xl font-bold text-red-400">
                             {topsisResults[0].preference.toFixed(4)}
                           </p>
                         </div>
@@ -901,7 +899,7 @@ export default function App() {
                         l.name,
                         l.distPos.toFixed(4),
                         l.distNeg.toFixed(4),
-                        <span key="v" className="font-bold text-violet-400">
+                        <span key="v" className="font-bold text-red-400">
                           {l.preference.toFixed(4)}
                         </span>,
                       ])}
