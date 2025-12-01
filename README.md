@@ -2,6 +2,8 @@
 
 **Decider-T** is a smart Decision Support System (SPK) designed to help university students choose the ideal laptop based on their specific major requirements. It utilizes the **TOPSIS (Technique for Order of Preference by Similarity to Ideal Solution)** method to rank laptops objectively.
 
+**Live Demo:** [https://MuhammadPrayoga.github.io/Decider-T](https://MuhammadPrayoga.github.io/Decider-T)
+
 ## 🚀 Features
 
 ### 🎓 User Mode
@@ -40,6 +42,10 @@
 ## 📦 Installation & Run
 
 1.  **Clone the repository** (if applicable)
+    ```bash
+    git clone https://github.com/MuhammadPrayoga/Decider-T.git
+    cd Decider-T
+    ```
 2.  **Install dependencies**:
     ```bash
     npm install
