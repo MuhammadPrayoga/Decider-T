@@ -1,6 +1,7 @@
 import React from "react";
 import { Calculator, Sun, Moon, User, LayoutDashboard } from "lucide-react";
 import { cn } from "../../lib/utils";
+import logo from "../../assets/logo.png";
 
 const Navbar = ({
   theme,
@@ -14,8 +15,12 @@ const Navbar = ({
     <nav className="border-b border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-950/50 backdrop-blur-xl sticky top-0 z-50 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 bg-gradient-to-br from-red-500 to-rose-600 rounded-xl flex items-center justify-center shadow-lg shadow-red-500/20">
-            <Calculator className="text-white w-6 h-6" />
+          <div className="w-10 h-10 bg-gradient-to-br from-red-500 to-rose-600 rounded-xl flex items-center justify-center shadow-lg shadow-red-500/20 overflow-hidden">
+            <img
+              src={logo}
+              alt="Decider-T Logo"
+              className="w-full h-full object-cover"
+            />
           </div>
           <div>
             <h1 className="font-bold text-xl tracking-tight text-slate-900 dark:text-white">
