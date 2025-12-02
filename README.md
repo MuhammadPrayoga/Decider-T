@@ -8,19 +8,26 @@
 
 ### 🎓 User Mode
 
-- **Personalized Recommendations**: Input your name and select your major (e.g., Informatics, Design, Business).
+- **Personalized Recommendations**: Input your name and select your major.
 - **Major-Specific Weighting**: The system automatically adjusts criteria weights (Price, CPU, RAM, Storage, VRAM) based on the selected major's needs.
   - _Informatika_: Balanced high specs.
   - _DKV_: High VRAM & RAM focus.
   - _Bisnis_: Storage & Price focus.
   - _Sastra_: Price focus (Budget-friendly).
   - _Arsitektur_: CPU & RAM focus.
+  - _Akuntansi_: Balanced Office focus.
+  - _Hukum_: Text/Storage focus.
+  - _Kedokteran_: Balanced/Storage focus.
 - **Visual Rankings**: See the top recommended laptop with a detailed breakdown of specifications and preference scores.
+- **Detail View**: Click on any laptop card to view full specifications in a modal.
+- **Dark/Light Mode**: Toggle between a clean light theme and a sleek dark theme.
 
 ### 🛠️ Admin Mode
 
-- **Manage Laptop Data**: Add new laptops to the database with specifications (Price, CPU, RAM, Storage, VRAM).
-- **Delete Laptops**: Remove outdated models from the list.
+- **Secure Access**: Simple password-protected admin area.
+- **Manage Laptop Data**: Add, Edit, and Delete laptops from the database.
+- **Image Support**: Add image URLs to display product photos.
+- **Data Persistence**: All changes are saved locally in your browser.
 
 ### 🧠 TOPSIS Calculation Details
 
@@ -37,11 +44,11 @@
 - **Build Tool**: [Vite](https://vitejs.dev/)
 - **Styling**: [Tailwind CSS](https://tailwindcss.com/)
 - **Icons**: [Lucide React](https://lucide.dev/)
-- **Utilities**: `clsx`, `tailwind-merge`
+- **Architecture**: Component-based structure with separated Logic (`utils`), Data (`data`), and UI (`components`).
 
 ## 📦 Installation & Run
 
-1.  **Clone the repository** (if applicable)
+1.  **Clone the repository**
     ```bash
     git clone https://github.com/MuhammadPrayoga/Decider-T.git
     cd Decider-T
