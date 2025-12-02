@@ -1,0 +1,55 @@
+export const INITIAL_LAPTOPS = [
+  {
+    id: 1,
+    name: "Laptop Office",
+    price: 5000000,
+    cpu: 4,
+    ram: 4,
+    storage: 256,
+    vram: 4,
+    image:
+      "https://media.dinomarket.com/docs/imgTD/2024-10/DM_8A66288AC870474204AD1F2865043881_141024161003_ll.jpg?w=600&q=80",
+  },
+  {
+    id: 2,
+    name: "Laptop Bisnis",
+    price: 8000000,
+    cpu: 6,
+    ram: 8,
+    storage: 512,
+    vram: 4,
+    image:
+      "https://els.id/wp-content/uploads/2024/05/Acer-Swift-GO-OLED-SFG14-73-Blue-6.png?w=600&q=80",
+  },
+  {
+    id: 3,
+    name: "Laptop Desain",
+    price: 12000000,
+    cpu: 10,
+    ram: 16,
+    storage: 512,
+    vram: 8,
+    image:
+      "https://els.id/wp-content/uploads/2024/12/Lenovo-LOQ-15IAX9E.png?w=600&q=80",
+  },
+  {
+    id: 4,
+    name: "Laptop Gaming",
+    price: 16000000,
+    cpu: 8,
+    ram: 16,
+    storage: 1000,
+    vram: 16,
+    image: "https://www.asus.com/media/Odin/Websites/global/Series/33.png",
+  },
+  {
+    id: 5,
+    name: "Laptop Render",
+    price: 25000000,
+    cpu: 16,
+    ram: 32,
+    storage: 2000,
+    vram: 32,
+    image: "https://m.media-amazon.com/images/I/61PSDa30RnL.jpg?w=600&q=80",
+  },
+];
