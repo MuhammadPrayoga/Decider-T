@@ -1086,9 +1086,9 @@ export default function App() {
               </form>
             </Card>
 
-            <div className="overflow-x-auto rounded-xl border border-slate-800">
+            <div className="overflow-x-auto rounded-xl border border-slate-200 dark:border-slate-800">
               <table className="w-full text-left text-sm">
-                <thead className="bg-slate-900 text-slate-400 uppercase font-medium">
+                <thead className="bg-slate-100 dark:bg-slate-900 text-slate-500 dark:text-slate-400 uppercase font-medium">
                   <tr>
                     <th className="px-6 py-4">Gambar</th>
                     <th className="px-6 py-4">Nama</th>
@@ -1100,14 +1100,14 @@ export default function App() {
                     <th className="px-6 py-4 text-right">Aksi</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-800 bg-slate-900/50">
+                <tbody className="divide-y divide-slate-200 dark:divide-slate-800 bg-white/50 dark:bg-slate-900/50">
                   {laptops.map((laptop) => (
                     <tr
                       key={laptop.id}
-                      className="hover:bg-slate-800/50 transition-colors"
+                      className="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors"
                     >
                       <td className="px-6 py-4">
-                        <div className="w-12 h-12 rounded-lg bg-slate-800 border border-slate-700 overflow-hidden flex items-center justify-center">
+                        <div className="w-12 h-12 rounded-lg bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 overflow-hidden flex items-center justify-center">
                           {laptop.image ? (
                             <img
                               src={laptop.image}
@@ -1115,20 +1115,31 @@ export default function App() {
                               className="w-full h-full object-cover"
                             />
                           ) : (
-                            <ImageIcon size={20} className="text-slate-600" />
+                            <ImageIcon
+                              size={20}
+                              className="text-slate-400 dark:text-slate-600"
+                            />
                           )}
                         </div>
                       </td>
-                      <td className="px-6 py-4 font-medium text-slate-200">
+                      <td className="px-6 py-4 font-medium text-slate-900 dark:text-slate-200">
                         {laptop.name}
                       </td>
-                      <td className="px-6 py-4">
+                      <td className="px-6 py-4 text-slate-700 dark:text-slate-400">
                         Rp {laptop.price.toLocaleString()}
                       </td>
-                      <td className="px-6 py-4">{laptop.cpu} Cores</td>
-                      <td className="px-6 py-4">{laptop.ram} GB</td>
-                      <td className="px-6 py-4">{laptop.storage} GB</td>
-                      <td className="px-6 py-4">{laptop.vram} GB</td>
+                      <td className="px-6 py-4 text-slate-700 dark:text-slate-400">
+                        {laptop.cpu} Cores
+                      </td>
+                      <td className="px-6 py-4 text-slate-700 dark:text-slate-400">
+                        {laptop.ram} GB
+                      </td>
+                      <td className="px-6 py-4 text-slate-700 dark:text-slate-400">
+                        {laptop.storage} GB
+                      </td>
+                      <td className="px-6 py-4 text-slate-700 dark:text-slate-400">
+                        {laptop.vram} GB
+                      </td>
                       <td className="px-6 py-4 text-right">
                         <div className="flex justify-end gap-2">
                           <Button
